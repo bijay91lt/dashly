@@ -34,25 +34,25 @@ export function TodoWidget() {
         </Button>
       </form>
 
-      <ul className="space-y-1">
+      <ul className="space-y-1" suppressHydrationWarning>
         {todos.map((todo) => (
-            <li key={todo.id} className="flex items-center gap-2">
-              <input
-                placeholder="Todo"
-                type="checkbox"
-                checked={todo.completed}
-                onChange={() => toggleTodo(todo.id)}
-                className="h-4 w-4"
-              />
-              <span
-                className={
-                  todo.completed ? "line-through text-muted-foreground" : ""
-                }
-              >
-                {todo.text}
-              </span>
-            </li>
-          ))}
+          <li key={todo.id} className="flex items-center gap-2">
+            <input
+              placeholder="Todo"
+              type="checkbox"
+              checked={todo.completed}
+              onChange={() => toggleTodo(todo.id)}
+              className="h-4 w-4"
+            />
+            <span
+              className={
+                todo.completed ? "line-through text-muted-foreground" : ""
+              }
+            >
+              {todo.text}
+            </span>
+          </li>
+        ))}
       </ul>
       <p className="mt-2 text-xs text-muted-foreground">
         {activeCount} {activeCount === 1 ? "task" : " 'tasks"} left
