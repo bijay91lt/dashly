@@ -1,12 +1,19 @@
 import { Button } from "@/components/ui/button";
+import { CLockWidget } from "@/components/widgets/ClockWidget";
 
 export default function Home() {
+  const now = new Date();
+
   return(
     <div className="min-h-screen bg-background p-6">
       <h1 className="text-3xl font-bold">Dashly</h1>
       <p className="mt-2 text-muted-foreground">Your personal Dasdhboard</p>
 
-      <Button className='mt-4'>Test Button</Button>
+      <div className="mt-6 grid grid-cols-1 sm:grid:cols-2 lg:grid-cols-6 gap-4">
+        <div className="lg:col-span-1">
+          <CLockWidget currentTime={now}/>
+        </div>
+      </div>
     </div>
   )
 }
